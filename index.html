@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+
+        @font-face {
+            font-family: f1;
+            src: url(fontes/akira_expanded/Akira\ Expanded\ Demo.otf);
+        }
+        body{
+            background-image: url(https://img.freepik.com/vetores-premium/fundo-de-numeros-coloridos-e-ludicos-fundo-de-apresentacao-educacional-perfeito-para-criancas_91515-252.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        h2{
+            font-size: 40px;
+            text-align: center;
+            font-family: f1;
+            color: darkslategray;
+            margin-top: 130px;
+        }
+
+        button{
+            font-size: 20px;
+            border-radius: 5px;
+            box-shadow: 5px 10px 15px black;
+        }
+
+        input{
+            margin-left: 460px;
+            font-size: 20px;
+            border-radius: 5px;
+            box-shadow: 5px 10px 15px black;
+        }
+
+        table{
+            margin-left: 560px;
+            background-color: bisque;
+            font-size: 25px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        h3{
+            text-align: center;
+            font-size: 25px;
+            color: darkgreen;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p{
+            font-size: 25px;
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: red;
+        }
+
+        footer{
+            text-align: center;
+            font-size: 25px;
+            margin-top: 60px;
+            color: darkslategray;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>Gerador De Tabuada</h2>
+        <input type="number" id="numInput" placeholder="Digite um Número">
+        <button onclick="geradorTabuada()">Gerar Tabuada</button>
+        <div id="tabuada"></div>
+    </div>
+
+    <script>
+        function geradorTabuada() {
+            var numInput = document.getElementById("numInput").value;
+            var tabuadaDiv = document.getElementById("tabuada");
+            tabuadaDiv.innerHTML = "";
+
+            if (!numInput || isNaN(numInput)) {
+                tabuadaDiv.innerHTML = "<p>Por favor, insira um número válido!<p/>";
+                return;    
+            }
+
+            var tableHTML = "<h3>Tabuada do " + numInput + "</h3> <table border='1'> <tr> <th> Número </th> <th> Resultado </th> </tr>";
+
+            for (var i = 1; i <= 10; i++) {
+                tableHTML += "<tr><td>" + numInput + " x " + i + "</td><td>" + (numInput * i) + "</td></tr>";
+            }   
+
+            tableHTML += "</table>";
+            tabuadaDiv.innerHTML = tableHTML;
+        }
+    </script>
+
+    <footer>Desenvolvido por Gabriela Líbio | Turma C | Fev2024 &copy;</footer>
+    
+</body>
+</html>
